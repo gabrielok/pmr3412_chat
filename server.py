@@ -12,8 +12,9 @@ import datetime
 async def time(websocket, path):
     while True:
         now = datetime.datetime.utcnow().isoformat() + "Z"
-        await websocket.send(now)
-        await asyncio.sleep(3)
+        await websocket.send('Robson!Oi')
+        await websocket.send('Manuel!oi')
+        await asyncio.sleep(5)
 
 start_server = websockets.serve(time, "127.0.0.1", 5678)
 print('Connected!')
