@@ -61,11 +61,14 @@ async def register(websocket):
     print('New user connected')
 
 async def unregister(websocket):
-    for conn in connected:
-        if conn != websocket:
-            msg_send = 'announcement#' + connected[websocket] + sys['userleft']
-            await conn.send(msg_send)
-    print(connected[websocket] + ' disconnected')
+    if connected[websocket] != '':
+        for conn in connected:
+            if conn != websocket:
+                msg_send = 'announcement#' + connected[websocket] + sys['userleft']
+                await conn.send(msg_send)
+        print(connected[websocket] + ' disconnected')
+    else:
+        print('Unknown disconnected')
     connected.pop(websocket)
 
 async def main(websocket, path):
