@@ -96,14 +96,14 @@
 	<div id='container'>
 		{#if connected == false}
 			<p id='wait'>
-				Waiting...
+				Esperando...
 			</p>
 			<button id='connect' on:click = {connect}>
-				Connect
+				Conectar
 			</button>
 		{:else}
 			<p id='ready'>
-				Connected!
+				Conectado!
 			</p>
 		{/if}
 		<input id='input' bind:value={user_input} on:keypress={sendMessage}/>
@@ -156,7 +156,7 @@
 
 	#container {
 		background-color: #e0e0e0;
-		border-style:double;
+		border-style: double;
 		border-color: #333333;
 		border-width: 9px;
 		border-radius: 10px;
